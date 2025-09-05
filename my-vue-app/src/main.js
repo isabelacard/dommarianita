@@ -1,29 +1,18 @@
-// Paso 1: Inicializa una variable para el valor del contador
 
-let contador = 0
+// Paso 1: Selecciona el botón con document.getElementById
 
-// Paso 2: Selecciona los botones y el span
+const boton = document.getElementById ('btnColor')
+let Pink = false
 
-const span = document.getElementById ('valor')
-const aumentar = document.getElementById ('incrementar')
-const bajar = document.getElementById ('decrementar')
+// Paso 2: Agrega un event listener al botón para detectar el click
 
-// Paso 3: Agrega listeners a los botones para modificar el valor
-
-aumentar.addEventListener ('click', () => {
-  span.textContent = contador ++
+boton.addEventListener('click', () => {
+  if (Pink) {
+    document.body.style.backgroundColor = "pink"
+  } else {
+    document.body.style.backgroundColor = 'white'
+  }
+  Pink = !Pink
 })
 
-
-// Paso 4: Asegúrate de que el valor no sea negativo
-
-
-bajar.addEventListener ('click', () => {
-if (contador > 0) {
-  span.textContent = contador --
-} else {
-  span.textContent = 0
-}
-})
-
-
+// Paso 3: Cambia el color de fondo de body dinámicamente
