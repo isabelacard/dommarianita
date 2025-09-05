@@ -1,18 +1,20 @@
+// Paso 1: Selecciona el input y los <li>
 
-// Paso 1: Selecciona el input y la lista
 
-const input = document.getElementById('entrada')
-const lista = document.getElementById('lista')
+const input = document.getElementById('buscador');
+const items = document.querySelectorAll('li');
 
-// Paso 2: Agrega un listener al input para detectar Enter (keyup o keydown)
+// Paso 2: Escucha el evento input
 
-input.addEventListener ('keyup', (Enter) => {
-  if (Enter.key === 'Enter') {
-    // Paso 3: Crea un nuevo <li> con el valor del input y agrégalo al ul
-    const li = document.createElement('li')
-    li.textContent = entrada.value;
-    lista.appendChild(li)
-    // Paso 4: Limpia el input después de agregar
-    entrada.value = '';
-  }
-})
+input.addEventListener('input', () => {
+  const texto = input.value.toLowerCase();
+  items.forEach(li => {
+    if (li.textContent.toLowerCase().includes(texto)) {
+      li.style.display = '';
+    } else {
+      li.style.display = 'none';
+    }
+  });
+});
+
+// Paso 3: Filtra los nombres mostrando solo los que coincidan con lo escrito
